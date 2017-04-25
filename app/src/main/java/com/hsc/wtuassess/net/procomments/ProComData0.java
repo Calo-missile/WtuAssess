@@ -1,10 +1,11 @@
-package com.hsc.wtuassess.net.productCommentsList;
+package com.hsc.wtuassess.net.procomments;
 
 /**
- * Created by 15827 on 2017/4/18.
+ * Created by 15827 on 2017/4/24.
  */
 
-public class CommentsData0 {
+public class ProComData0 {
+
     private String id;
 
     private int score;
@@ -15,9 +16,9 @@ public class CommentsData0 {
 
     private String content;
 
-    private CommentsMember member;
+    private ProComMember member;
 
-    private CommentsProduct product;
+    private ProductCom product;
 
     public String getId() {
         return id;
@@ -59,19 +60,19 @@ public class CommentsData0 {
         this.content = content;
     }
 
-    public CommentsMember getMember() {
+    public ProComMember getMember() {
         return member;
     }
 
-    public void setMember(CommentsMember member) {
+    public void setMember(ProComMember member) {
         this.member = member;
     }
 
-    public CommentsProduct getProduct() {
+    public ProductCom getProduct() {
         return product;
     }
 
-    public void setProduct(CommentsProduct product) {
+    public void setProduct(ProductCom product) {
         this.product = product;
     }
 }

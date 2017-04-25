@@ -1,10 +1,11 @@
-package com.hsc.wtuassess.net.productCommentsList;
+package com.hsc.wtuassess.net.procomments;
 
 /**
- * Created by 15827 on 2017/4/18.
+ * Created by 15827 on 2017/4/24.
  */
 
-public class CommentsMember {
+public class ProComMember {
+
     private String id;
 
     private String username;
