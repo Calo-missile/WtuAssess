@@ -1,19 +1,20 @@
-package com.hsc.wtuassess.net.productCommentsList;
+package com.hsc.wtuassess.net.procomments;
 
 import java.util.List;
 
 /**
- * Created by 15827 on 2017/4/18.
+ * Created by 15827 on 2017/4/24.
  */
 
-public class ProCommentsModel {
+public class ProComModel {
+
     private boolean success;
 
     private String msg;
 
-    private List<CommentsData0> data0 ;
+    private List<ProComData0> data0;
 
-    public boolean isSuccess() {
+    public boolean getSuccess() {
         return success;
     }
 
@@ -29,11 +30,11 @@ public class ProCommentsModel {
         this.msg = msg;
     }
 
-    public List<CommentsData0> getData0() {
+    public List<ProComData0> getData0() {
         return data0;
     }
 
-    public void setData0(List<CommentsData0> data0) {
+    public void setData0(List<ProComData0> data0) {
         this.data0 = data0;
     }
 }
