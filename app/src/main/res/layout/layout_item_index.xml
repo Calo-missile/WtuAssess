@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <LinearLayout
+            android:paddingTop="5dp"
+            android:paddingLeft="5dp"
+            android:id="@+id/product_detail"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="105dp">
+
+            <ImageView
+                android:scaleType="fitXY"
+                android:src="@drawable/icon_test"
+                android:layout_marginRight="10dp"
+                android:id="@+id/iv_product_img"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:paddingTop="5dp"
+                android:paddingLeft="10dp"
+                android:paddingBottom="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tv_product_name"
+                    android:textSize="20sp"
+                    android:text="小龙虾"
+                    android:textColor="#d11313"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tv_category_name"
+                    android:textSize="16sp"
+                    android:text="小龙虾"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tv_brand_name"
+                    android:layout_marginTop="5dp"
+                    android:textSize="16sp"
+                    android:text="小龙虾"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <include layout="@layout/pro_action"/>
+
+       <!-- <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:id="@+id/tv_hit_count"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:text="浏览量99+"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:layout_height="40dp"/>
+            <View
+                android:layout_gravity="center"
+                android:background="#898989"
+                android:layout_width="1dp"
+                android:layout_height="8dp"/>
+
+            <TextView
+                android:id="@+id/tv_comment_count"
+                android:layout_weight="1"
+                android:text="评价99+"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:layout_width="0dp"
+                android:layout_height="40dp"/>
+            <View
+                android:layout_gravity="center"
+                android:background="#898989"
+                android:layout_width="1dp"
+                android:layout_height="8dp"/>
+
+            <TextView
+                android:id="@+id/tv_favorite"
+                android:text="收藏"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="40dp"/>
+
+        </LinearLayout>-->
+    </LinearLayout>
+    
+
+</android.support.v7.widget.CardView>
