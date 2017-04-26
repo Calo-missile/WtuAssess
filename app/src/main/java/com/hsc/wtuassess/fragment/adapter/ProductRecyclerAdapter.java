@@ -11,8 +11,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.hsc.wtuassess.R;
 import com.hsc.wtuassess.acti.ProductDetailActivity;
 import com.hsc.wtuassess.context.AppConfig;
@@ -103,11 +101,12 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecycler
     public void onBindViewHolder(ViewHolder holder, int position) {
         Data0 datas = mdList.get(position);
         Log.i("info", "onBindViewHolder: datas"+this.mdList.get(position).getImage());
-        Glide.with(AppContext.getAppContext()).load(AppConfig.PROJECT + this.mdList.get(position).getImage())
+        /*Glide.with(AppContext.getAppContext()).load(AppConfig.PROJECT + this.mdList.get(position).getImage())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .into(holder.ivImg);
-        /*AppContext.getAppContext().getImageLoader().displayImage(
-                AppConfig.PROJECT + this.mdList.get(position).getImage(), holder.ivImg, options);*/
+                .transform(new GlideTransformUtil(AppContext.getAppContext()))
+                .into(holder.ivImg);*/
+        AppContext.getAppContext().getImageLoader().displayImage(
+                AppConfig.PROJECT + this.mdList.get(position).getImage(), holder.ivImg, options);
         holder.tvName.setText(datas.getName());
         holder.tvCategoryName.setText(datas.getCategory().getName());
         holder.tvBrandName.setText(datas.getBrand().getName());

@@ -6,7 +6,8 @@ import android.os.Message;
 import android.widget.TextView;
 
 import com.hsc.wtuassess.R;
-import com.hsc.wtuassess.net.productCommentsList.service.ProCommentsService;
+import com.hsc.wtuassess.net.procomments.service.ProCommentsService;
+
 
 public class TestActivity extends BaseActivity{
 
@@ -67,7 +68,7 @@ public class TestActivity extends BaseActivity{
         setContentView(returnLayoutRes());
         String id = "297ed7be5ad6a40b015ad6b7ab72000b";
         String[] parmas = new String[]{id, String.valueOf(getpFirstPage() * getpPageMax()), String.valueOf(getpPageMax())};
-        mCommentsService.getProComments(parmas);
+        //mCommentsService.getProComments(parmas);
     }
 
     public void loadData(String[] params) {
