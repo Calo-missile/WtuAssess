@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:paddingBottom="0dp"
+              android:paddingLeft="12dp"
+              android:paddingRight="12dp"
+              android:paddingTop="12dp">
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circle_user_img"
+            android:layout_marginRight="12dp"
+            
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/circle_user_img"
+            android:text="@string/app_name"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/mood_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/user_name"
+            android:layout_marginTop="3dp"
+            android:layout_toRightOf="@id/circle_user_img"
+            android:text="@string/app_name"/>
+        
+    </RelativeLayout>
+    
+    <TextView
+        android:id="@+id/tv_circle_content"
+        android:paddingTop="5dp"
+        android:paddingLeft="5dp"
+        android:text="这是内容"
+        android:textSize="16sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <include layout="@layout/item_circle_action"/>
+
+</LinearLayout>

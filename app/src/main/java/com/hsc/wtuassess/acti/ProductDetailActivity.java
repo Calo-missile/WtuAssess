@@ -57,7 +57,7 @@ public class ProductDetailActivity extends BaseActivity {
                     bannerImg.setImageResources(list, new BannerView.ImageCycleViewListener() {
                         @Override
                         public void displayImage(Object imageURL, ImageView imageView) {
-                            Glide.with(getBaseContext()).load((String) imageURL).placeholder(R.drawable.ic_error).error(R.drawable.ic_error).into(imageView);
+                            Glide.with(getBaseContext()).load((String) imageURL).placeholder(R.drawable.ic_empty).error(R.drawable.ic_empty).into(imageView);
                             //Log.i("info", "handleMessage: 1" + mDetail.getImage());
                         }
 

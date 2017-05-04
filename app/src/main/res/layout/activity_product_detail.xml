@@ -122,26 +122,26 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                
+
                 <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_weight="1"
                     android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:gravity="center"
-                    android:layout_height="wrap_content">
+                    android:orientation="horizontal">
 
                     <ImageView
-                        android:src="@drawable/icon_see"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_see"/>
 
                     <TextView
-                        android:layout_marginLeft="10dp"
-                        android:text="99+"
                         android:id="@+id/tv_hit_detail"
                         android:layout_width="wrap_content"
-                        android:textSize="18sp"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="99+"
+                        android:textSize="18sp"/>
                 </LinearLayout>
 
                 <LinearLayout
