@@ -36,7 +36,7 @@
                 android:textSize="16sp"/>
 
             <TextView
-                android:id="@+id/mood_time"
+                android:id="@+id/tv_cir_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_ciruser_name"
@@ -56,6 +56,31 @@
             android:textSize="16sp"/>
 
         <include layout="@layout/item_circle_action"/>
+        
+        <LinearLayout
+            android:paddingLeft="5dp"
+            android:paddingBottom="5dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:descendantFocusability="blocksDescendants"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:focusable="false"
+                android:scaleType="centerInside"
+                android:src="@mipmap/icon_like"/>
+
+            <TextView
+                android:id="@+id/tv_like_people"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="小千"
+                android:textColor="#4FC1E9"/>
+            
+        </LinearLayout>
     </LinearLayout>
 
 

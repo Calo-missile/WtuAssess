@@ -14,7 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hsc.wtuassess.acti.BaseActivity;
-import com.hsc.wtuassess.fragment.FriendCircleFragment;
+import com.hsc.wtuassess.fragment.RecCircleFragment;
 import com.hsc.wtuassess.fragment.RecIndexFragment;
 import com.hsc.wtuassess.util.BottomNavUtil;
 
@@ -63,8 +63,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void initData() {
-        FriendCircleFragment  friendCircleFragment= new FriendCircleFragment();
+        //FriendCircleFragment  friendCircleFragment= new FriendCircleFragment();
         //IndexFragment  indexFragment= new IndexFragment();
+        RecCircleFragment circleFragment = new RecCircleFragment();
         RecIndexFragment recIndexFragment = new RecIndexFragment();
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
@@ -84,7 +85,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         //fragments.add(indexFragment);
 
         fragments.add(recIndexFragment);
-        fragments.add(friendCircleFragment);
+        fragments.add(circleFragment);
         
         pagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
