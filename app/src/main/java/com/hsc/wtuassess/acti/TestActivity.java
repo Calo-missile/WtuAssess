@@ -1,15 +1,22 @@
 package com.hsc.wtuassess.acti;
 
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.hsc.wtuassess.R;
+import com.hsc.wtuassess.net.circleList.CircleData0;
+import com.hsc.wtuassess.net.circleList.service.CircleListService;
 import com.hsc.wtuassess.net.procomments.service.ProCommentsService;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class TestActivity extends BaseActivity{
+
+    private static final String TAG = "TestActivity";
 
     private TextView testNet;
 
@@ -17,7 +24,7 @@ public class TestActivity extends BaseActivity{
 
     private int pFirstPage = 0;
 
-    private int pPageMax = 5;
+    private int pPageMax = 3;
 
     public int getpFirstPage() {
         return pFirstPage;
@@ -34,11 +41,21 @@ public class TestActivity extends BaseActivity{
     public void setpPageMax(int pPageMax) {
         this.pPageMax = pPageMax;
     }
+
+    private List<CircleData0> datas = new ArrayList<>();
     
     private Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
+            switch (msg.what) {
+                case CircleListService.MESSAGE_SUCCESS:
+                    datas = (List<CircleData0>) msg.obj;
+                    Log.i(TAG, "handleMessage: " + datas.get(0).getContent());
+                    break;
+                case CircleListService.MESSAGE_ERROR:
+                    Log.i(TAG, "handleMessage: fail");
+            }
         }
     };
 
@@ -59,20 +76,8 @@ public class TestActivity extends BaseActivity{
 
     @Override
     protected void initData() {
-
+        String [] params = {String.valueOf(getpFirstPage()*getpPageMax()),String.valueOf(getpPageMax())};
+        new CircleListService().getCircleList(handler,params);
     }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(returnLayoutRes());
-        String id = "297ed7be5ad6a40b015ad6b7ab72000b";
-        String[] parmas = new String[]{id, String.valueOf(getpFirstPage() * getpPageMax()), String.valueOf(getpPageMax())};
-        //mCommentsService.getProComments(parmas);
-    }
-
-    public void loadData(String[] params) {
-        //发送网络请求数据
-        //new ProductListService().getProductList(handler,params);
-    }
+    
 }

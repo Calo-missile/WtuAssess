@@ -17,7 +17,7 @@
             android:layout_height="22dp"/>
 
         <TextView
-            android:id="@+id/tv_hit_count"
+            android:id="@+id/tv_hitcir_count"
             android:layout_width="wrap_content"
             android:text="99+"
             android:layout_marginLeft="10dp"
@@ -40,7 +40,7 @@
             android:layout_height="20dp"/>
 
         <TextView
-            android:id="@+id/tv_comment_count"
+            android:id="@+id/tv_commentcir_count"
             android:layout_width="wrap_content"
             android:text="99+"
             android:layout_marginLeft="10dp"
@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"/>
 
         <TextView
-            android:id="@+id/tv_favorite"
+            android:id="@+id/tv_like_cir"
             android:layout_width="wrap_content"
             android:text="99+"
             android:layout_marginLeft="10dp"
