@@ -2,13 +2,12 @@ package com.hsc.wtuassess.acti;
 
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.widget.TextView;
 
 import com.hsc.wtuassess.R;
 import com.hsc.wtuassess.net.circleList.CircleData0;
-import com.hsc.wtuassess.net.circleList.service.CircleListService;
 import com.hsc.wtuassess.net.procomments.service.ProCommentsService;
+import com.hsc.wtuassess.net.userDetail.service.UserDetailService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,12 +48,12 @@ public class TestActivity extends BaseActivity{
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             switch (msg.what) {
-                case CircleListService.MESSAGE_SUCCESS:
+                /*case CircleListService.MESSAGE_SUCCESS:
                     datas = (List<CircleData0>) msg.obj;
                     Log.i(TAG, "handleMessage: " + datas.get(0).getContent());
                     break;
                 case CircleListService.MESSAGE_ERROR:
-                    Log.i(TAG, "handleMessage: fail");
+                    Log.i(TAG, "handleMessage: fail");*/
             }
         }
     };
@@ -76,8 +75,10 @@ public class TestActivity extends BaseActivity{
 
     @Override
     protected void initData() {
-        String [] params = {String.valueOf(getpFirstPage()*getpPageMax()),String.valueOf(getpPageMax())};
-        new CircleListService().getCircleList(handler,params);
+        /*String [] params = {String.valueOf(getpFirstPage()*getpPageMax()),String.valueOf(getpPageMax())};
+        new CircleListService().getCircleList(handler,params);*/
+        String id = "297ed7be5ad2cb44015ad2cbf70a0001";
+        new UserDetailService().getUserDetail(handler, id);
     }
     
 }

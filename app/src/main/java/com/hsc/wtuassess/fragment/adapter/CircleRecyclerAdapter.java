@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,7 +21,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * Created by 15827 on 2017/5/4.
  */
 
-public class CircleRecyclerAdapter extends RecyclerView.Adapter<CircleRecyclerAdapter.ViewHolder> {
+public class CircleRecyclerAdapter extends RecyclerView.Adapter<CircleRecyclerAdapter.ViewHolder> implements View.OnClickListener {
     
     private Context mContext;
 
@@ -31,18 +32,37 @@ public class CircleRecyclerAdapter extends RecyclerView.Adapter<CircleRecyclerAd
         mCircleDatas = circleDatas;
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.tv_ciruser_name:
+                ToastUtil.showToast(mContext, "tv_ciruser_name", Toast.LENGTH_SHORT);
+                break;
+            case R.id.circle_user_img:
+                ToastUtil.showToast(mContext, "circle_user_img", Toast.LENGTH_SHORT);
+                break;
+            case R.id.ll_circle_parent:
+                ToastUtil.showToast(mContext, "ll_circle_parent", Toast.LENGTH_SHORT);
+                break;
+            default:
+        }
+    }
+
     static class ViewHolder extends RecyclerView.ViewHolder{
         
-        TextView tvUserName;
+        LinearLayout mLinearLayout;
+        
+        TextView tvUserName;//人名
         TextView tvCirHit;
         TextView tvCirComment; //评论次数
         TextView tvCirLike;//点赞数量
         TextView cirContent; //内容
         TextView cirTime;  //发布时间
         TextView likePeople;//点赞人名
-        CircleImageView userImg;
+        CircleImageView userImg;//头像
         public ViewHolder(View itemView) {
             super(itemView);
+            mLinearLayout = (LinearLayout) itemView.findViewById(R.id.ll_circle_parent); 
             tvUserName = (TextView) itemView.findViewById(R.id.tv_ciruser_name);
             tvCirHit = (TextView) itemView.findViewById(R.id.tv_hitcir_count);
             tvCirComment = (TextView) itemView.findViewById(R.id.tv_commentcir_count);
@@ -61,12 +81,10 @@ public class CircleRecyclerAdapter extends RecyclerView.Adapter<CircleRecyclerAd
         }
         View view = LayoutInflater.from(mContext).inflate(R.layout.layout_item_circle, parent, false);
         ViewHolder holder = new ViewHolder(view);
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ToastUtil.showToast(mContext, "This is nothing", Toast.LENGTH_SHORT);
-            }
-        });
+        holder.tvUserName.setOnClickListener(this);
+        holder.userImg.setOnClickListener(this);
+        holder.itemView.setOnClickListener(this);
+        holder.mLinearLayout.setOnClickListener(this);
         
         return holder;
     }

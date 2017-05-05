@@ -26,6 +26,8 @@
             android:name=".acti.ProductDetailActivity"
             android:theme="@style/ProductDetailActivity">
         </activity>
+        <activity android:name=".acti.UserDetailActivity">
+        </activity>
     </application>
 
 </manifest>

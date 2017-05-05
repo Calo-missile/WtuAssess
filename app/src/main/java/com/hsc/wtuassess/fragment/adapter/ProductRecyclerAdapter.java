@@ -84,7 +84,7 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecycler
         holder.itemLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int position = holder.getAdapterPosition();
+                int position = holder.getAdapterPosition();//获取position
                 Data0 data = mdList.get(position);
                 //Log.i("info", "onClick: id" + data.getId());
                 Intent intent = new Intent(mContext, ProductDetailActivity.class);
