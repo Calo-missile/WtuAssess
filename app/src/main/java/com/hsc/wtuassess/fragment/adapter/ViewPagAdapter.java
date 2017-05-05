@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by 15827 on 2017/4/22.
  */
-
+//轮播测试
 public class ViewPagAdapter extends PagerAdapter {
 
     private List<ImageView> imageViewList;

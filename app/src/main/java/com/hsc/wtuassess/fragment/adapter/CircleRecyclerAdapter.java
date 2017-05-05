@@ -1,52 +1,41 @@
 package com.hsc.wtuassess.fragment.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.hsc.wtuassess.R;
+import com.hsc.wtuassess.acti.UserDetailActivity;
 import com.hsc.wtuassess.net.circleList.CircleData0;
-import com.hsc.wtuassess.util.ToastUtil;
 
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
+import static android.content.ContentValues.TAG;
+
 /**
  * Created by 15827 on 2017/5/4.
  */
 
-public class CircleRecyclerAdapter extends RecyclerView.Adapter<CircleRecyclerAdapter.ViewHolder> implements View.OnClickListener {
+public class CircleRecyclerAdapter extends RecyclerView.Adapter<CircleRecyclerAdapter.ViewHolder>  {
     
     private Context mContext;
 
     private List<CircleData0> mCircleDatas;
+    
 
     public CircleRecyclerAdapter(Context context, List<CircleData0> circleDatas) {
         mContext = context;
         mCircleDatas = circleDatas;
     }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.tv_ciruser_name:
-                ToastUtil.showToast(mContext, "tv_ciruser_name", Toast.LENGTH_SHORT);
-                break;
-            case R.id.circle_user_img:
-                ToastUtil.showToast(mContext, "circle_user_img", Toast.LENGTH_SHORT);
-                break;
-            case R.id.ll_circle_parent:
-                ToastUtil.showToast(mContext, "ll_circle_parent", Toast.LENGTH_SHORT);
-                break;
-            default:
-        }
-    }
+    
 
     static class ViewHolder extends RecyclerView.ViewHolder{
         
@@ -80,11 +69,36 @@ public class CircleRecyclerAdapter extends RecyclerView.Adapter<CircleRecyclerAd
             mContext = parent.getContext();
         }
         View view = LayoutInflater.from(mContext).inflate(R.layout.layout_item_circle, parent, false);
-        ViewHolder holder = new ViewHolder(view);
-        holder.tvUserName.setOnClickListener(this);
-        holder.userImg.setOnClickListener(this);
-        holder.itemView.setOnClickListener(this);
-        holder.mLinearLayout.setOnClickListener(this);
+        final ViewHolder holder = new ViewHolder(view);
+        //Log.i(TAG, "onCreateViewHolder: "+data0.getId());
+        holder.tvUserName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = holder.getAdapterPosition();
+                CircleData0 data = mCircleDatas.get(position);
+                Intent intent = new Intent(mContext, UserDetailActivity.class);
+                intent.putExtra("user_id", data.getMember().getId());
+                Log.i(TAG, "onCreateViewHolder: id传递：" + data.getMember().getId());
+                mContext.startActivity(intent);
+            }
+        });
+        holder.userImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = holder.getAdapterPosition();
+                CircleData0 data = mCircleDatas.get(position);
+                Intent intent = new Intent(mContext, UserDetailActivity.class);
+                intent.putExtra("user_id", data.getMember().getId());
+                Log.i(TAG, "onCreateViewHolder: id传递：" + data.getMember().getId());
+                mContext.startActivity(intent);
+            }
+        });
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+            }
+        });
         
         return holder;
     }
