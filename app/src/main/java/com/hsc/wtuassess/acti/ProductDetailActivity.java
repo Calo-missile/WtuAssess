@@ -113,7 +113,7 @@ public class ProductDetailActivity extends BaseActivity {
 
     @Override
     protected void bindEvent() {
-        //toolbar.setTitle("");
+        toolbar.setTitle("");
         collapsingToolbar.setTitle("");
         setSupportActionBar(toolbar);
         actionBar = getSupportActionBar();

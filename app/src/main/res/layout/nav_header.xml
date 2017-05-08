@@ -5,12 +5,12 @@
                 android:padding="10dp"
                 android:background="?attr/colorPrimary">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/icon_image"
-        android:src="@mipmap/ic_launcher"
+        android:src="@mipmap/icon_userimg"
         android:layout_centerInParent="true"
-        android:layout_width="70dp"
-        android:layout_height="70dp"/>
+        android:layout_width="98dp"
+        android:layout_height="98dp"/>
 
     <TextView
         android:id="@+id/username"

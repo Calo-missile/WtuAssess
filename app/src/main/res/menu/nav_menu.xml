@@ -3,29 +3,30 @@
     <group android:checkableBehavior="single">
 
         <item
-            android:id="@+id/nav_call"
-            android:icon="@mipmap/ic_launcher"
-            android:title="Call"/>
+            android:id="@+id/nav_menu_me"
+            android:icon="@mipmap/icon_me"
+            android:title="我的资料"/>
+        
+        <item
+            android:id="@+id/nav_withme"
+            android:icon="@mipmap/icon_withme"
+            android:title="与我相关"/>
+
 
         <item
-            android:id="@+id/nav_frends"
-            android:icon="@mipmap/ic_launcher"
-            android:title="Friends"/>
+            android:id="@+id/nav_install"
+            android:icon="@mipmap/icon_install"
+            android:title="设置"/>
 
         <item
-            android:id="@+id/nav_location"
-            android:icon="@mipmap/ic_launcher"
-            android:title="Location"/>
+            android:id="@+id/nav_about"
+            android:icon="@mipmap/icon_about"
+            android:title="关于This"/>
 
         <item
-            android:id="@+id/nav_mail"
-            android:icon="@mipmap/ic_launcher"
-            android:title="Mail"/>
-
-        <item
-            android:id="@+id/nav_task"
-            android:icon="@mipmap/ic_launcher"
-            android:title="Tasks"/>
+            android:id="@+id/nav_out"
+            android:icon="@mipmap/icon_out"
+            android:title="退出登录"/>
 
 
     </group>

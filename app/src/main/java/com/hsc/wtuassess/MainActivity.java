@@ -1,5 +1,6 @@
 package com.hsc.wtuassess;
 
+import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -8,15 +9,19 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hsc.wtuassess.acti.BaseActivity;
+import com.hsc.wtuassess.acti.PublishActivity;
 import com.hsc.wtuassess.fragment.RecCircleFragment;
 import com.hsc.wtuassess.fragment.RecIndexFragment;
 import com.hsc.wtuassess.util.BottomNavUtil;
+import com.hsc.wtuassess.util.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +29,8 @@ import java.util.List;
 public class MainActivity extends BaseActivity implements View.OnClickListener {
     
     private ViewPager vp;
+
+    private long exittime = 0;//抽屉Back键返回
     
     private FragmentPagerAdapter pagerAdapter;
     List<Fragment> fragments = new ArrayList<>();
@@ -74,16 +81,37 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeAsUpIndicator(R.drawable.icon_home);
         }
-        navView.setCheckedItem(R.id.nav_call);
+        //navView.setCheckedItem(Integer.parseInt(null));//默认选项
+        //Navigation按钮监听事件   抽屉
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            
+            
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
-                mDrawerLayout.closeDrawers();
+                switch (item.getItemId()) {
+                    case R.id.nav_menu_me:
+                        ToastUtil.showToast(getBaseContext(), "我的资料", Toast.LENGTH_SHORT);
+                        break;
+                    case R.id.nav_withme:
+                        ToastUtil.showToast(getBaseContext(), "与我相关", Toast.LENGTH_SHORT);
+                        break;
+                    case R.id.nav_install:
+                        ToastUtil.showToast(getBaseContext(), "设置", Toast.LENGTH_SHORT);
+                        break;
+                    case R.id.nav_about:
+                        ToastUtil.showToast(getBaseContext(), "关于", Toast.LENGTH_SHORT);
+                        break;
+                    case R.id.nav_out:
+                        finish();
+                        break;
+                }
+                //mDrawerLayout.closeDrawers();
                 return true;
             }
         });
         //fragments.add(indexFragment);
 
+        //添加fragments实现分页
         fragments.add(recIndexFragment);
         fragments.add(circleFragment);
         
@@ -100,6 +128,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         };
 
         vp.setAdapter(pagerAdapter);
+        //滑动事件
         vp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             /*position-点击滑动的界面位置（viewpager界面排序为0.1.2.3....）
             positionOffset-点击页面便宜整个屏幕的百分比
@@ -134,14 +163,42 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+        return true;
+    }
+
+    //Menu事件
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 mDrawerLayout.openDrawer(GravityCompat.START);
+                
+                
+                break;
+            case R.id.publish_mood:
+                Intent intent = new Intent(this, PublishActivity.class);
+                startActivity(intent);
                 break;
             default:
         }
         return true;
+    }
+
+    //返回键点击事件
+    @Override
+    public void onBackPressed() {
+        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+            mDrawerLayout.closeDrawers();
+        } else {
+            if (System.currentTimeMillis() - exittime < 2000){
+                super.onBackPressed();
+            }else {
+                ToastUtil.showToast(MainActivity.this, "再按一次退出", Toast.LENGTH_SHORT);
+                exittime = System.currentTimeMillis();
+            }
+        } 
     }
 
     @Override

@@ -1,6 +1,5 @@
 package com.hsc.wtuassess.acti;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
@@ -28,7 +27,7 @@ public class UserDetailActivity extends BaseActivity {
     private UserDetailData0 detailData;
     
     private Toolbar toolbar;
-    private ActionBar actionBar;
+    
     
     private Handler handler = new Handler(){
         @Override
@@ -52,6 +51,7 @@ public class UserDetailActivity extends BaseActivity {
         }
     };
     private TextView titleUser;
+    private android.support.v7.app.ActionBar actionBar;
 
     @Override
     protected int returnLayoutRes() {
@@ -74,10 +74,10 @@ public class UserDetailActivity extends BaseActivity {
     protected void bindEvent() {
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
-        /*actionBar = getActionBar();
+        actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
-        }*/
+        }
     }
 
     @Override
